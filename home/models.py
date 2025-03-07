@@ -25,7 +25,7 @@ class Doctors(models.Model):
     doctrosName =  models.CharField(max_length=255,null=True,blank=True)
     address = models.CharField(max_length=100,null=True,blank=True)
     department = models.ForeignKey(Department,on_delete=models.CASCADE ,null=True,blank=True)
-    image =  models.CharField(max_length=255,null=True,blank=True)
+    image =  models.ImageField(upload_to='doctors/',null=True,blank=True)
     
     
     def __str__(self):

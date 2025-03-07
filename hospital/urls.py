@@ -17,9 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contactApi/', ContactApi.as_view(), name='contactApi'),
-]
+    path('departmentApi/',DepartmentApi.as_view(), name='departmentApi'),
+    path('departmentApi/<int:id>',DepartmentApi.as_view(), name='departmentUpdateApi'),
+    path('doctorsApi/',DoctorsApi.as_view(),name='doctrosApi'),
+    path('doctorsApi/<int:id>',DoctorsApi.as_view(),name='doctrosUpdateApi'),
+    path('appointmentApi/', AppointmentApi.as_view(), name='appointmentApi'),
+    
+     
+    
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
