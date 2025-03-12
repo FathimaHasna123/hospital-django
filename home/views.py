@@ -14,11 +14,12 @@ class ContactApi(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = ContactSerializer(data=request.data)
+        serializer = ContactPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+        
     
     
 class DepartmentApi(APIView):
@@ -91,7 +92,7 @@ class AppointmentApi(APIView):
     
     
     def post(self,request):
-        serializer = AppointmentSerializer(data=request.data)
+        serializer = AppointmentPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

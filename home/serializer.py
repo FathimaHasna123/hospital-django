@@ -8,7 +8,13 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model=Contact
         fields = '__all__'
-        
+  
+class ContactPostSerializer(serializers.ModelSerializer):
+    
+     class Meta:
+        model=Contact
+        fields = '__all__'
+            
         
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,10 +44,18 @@ class DoctorsPostSerializer(serializers.ModelSerializer):
         
      
 class AppointmentSerializer(serializers.ModelSerializer):
-     department = DepartmentSerializer() 
-     doctors = DoctorsSerializer()
-    
-     class Meta:
+   department = DepartmentSerializer()
+   doctors = DoctorsSerializer()
+
+
+   class Meta:
         model=Appointment
         fields = '__all__'                       
-        
+    
+    
+class AppointmentPostSerializer(serializers.ModelSerializer):
+   
+
+    class Meta:
+        model = Appointment
+        fields = '__all__'
