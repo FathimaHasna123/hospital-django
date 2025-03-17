@@ -11,14 +11,14 @@ class Contact(models.Model):
     address = models.CharField(max_length=100,null=True,blank=True)
     
     
-def __str__(self):
- return self.name
+    def __str__(self):
+        return self.name if self.name else "Unnamed Doctor" 
 
 class Department(models.Model):
     name =  models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed Doctor" 
     
     
 class Doctors(models.Model):
@@ -27,9 +27,8 @@ class Doctors(models.Model):
     department = models.ForeignKey(Department,on_delete=models.CASCADE ,null=True,blank=True)
     image =  models.ImageField(upload_to='doctors/',null=True,blank=True)
     
-    
     def __str__(self):
-        return self.doctrosName   
+        return self.doctrosName if self.doctrosName else "Unnamed Doctor"
     
     
 class Appointment(models.Model):
@@ -41,4 +40,4 @@ class Appointment(models.Model):
     time =  models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
-        return self.name     
+        return self.name if self.name else "Unnamed Doctor"  

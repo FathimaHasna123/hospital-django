@@ -30,12 +30,12 @@ class DepartmentPostSerializer(serializers.ModelSerializer):
         
 class DoctorsSerializer(serializers.ModelSerializer):
    department = DepartmentSerializer()
-   file_name = serializers.SerializerMethodField()
+#    file_name = serializers.SerializerMethodField()
    class Meta:
         model=Doctors
         fields = '__all__'
-   def get_file_name(self, obj):
-        return obj.image.name if obj.image else None
+#    def get_file_name(self, obj):
+#         return obj.image.name if obj.image else None
 
 class DoctorsPostSerializer(serializers.ModelSerializer):  
    class Meta:

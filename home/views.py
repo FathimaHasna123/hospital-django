@@ -30,6 +30,7 @@ class DepartmentApi(APIView):
         return Response(serializer.data,status=status.HTTP_200_OK)
     
     def post(self,request):
+      
         serializer =DepartmentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -38,6 +39,7 @@ class DepartmentApi(APIView):
     
     def put(self,request,id=None):
         department = Department.objects.get(id=id)
+        print("printing :::::::::::" , request.data)
         serializer = DepartmentPostSerializer(department,data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -66,6 +68,7 @@ class DoctorsApi(APIView):
     
     def put(self,request,id=None):
         doctors = Doctors.objects.get(id=id)
+        
         serializer = DoctorsPostSerializer(doctors,data=request.data)
         if serializer.is_valid():
             serializer.save()
