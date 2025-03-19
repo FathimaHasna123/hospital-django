@@ -41,7 +41,8 @@ class DoctorsPostSerializer(serializers.ModelSerializer):
    class Meta:
         model=Doctors
         fields = '__all__'            
-        
+
+       
      
 class AppointmentSerializer(serializers.ModelSerializer):
    department = DepartmentSerializer()
